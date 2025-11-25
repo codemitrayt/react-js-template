@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router'
 
-import { AppLayout } from './layouts'
+import { AppLayout, AuthLayout } from './pages'
 import { HomePage, NotFoundPage, SignInPage, SignUpPage } from './pages'
 
 const AppRoutes = () => {
@@ -8,7 +8,7 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppLayout />}>
-          <Route path="auth">
+          <Route path="auth" element={<AuthLayout />}>
             <Route path="sign-in" element={<SignInPage />} />
             <Route path="sign-up" element={<SignUpPage />} />
           </Route>

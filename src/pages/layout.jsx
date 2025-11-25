@@ -1,5 +1,5 @@
-import { Footer, Header } from '@/components'
 import { Outlet } from 'react-router'
+import { Header } from '@/components'
 
 const AppLayout = () => {
   return (
@@ -8,7 +8,6 @@ const AppLayout = () => {
       <main className="flex-1 overflow-y-auto">
         <Outlet />
       </main>
-      <Footer />
     </div>
   )
 }
