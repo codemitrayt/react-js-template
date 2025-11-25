@@ -1,100 +1,34 @@
-import { SearchIcon, X } from 'lucide-react'
-import { useEffect, useCallback, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { SearchIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { useDebounce } from '@/hooks'
 import { Input } from '@/components/ui/input'
 
-const InputSearch = ({
-  text = '',
-  fn,
-  placeholder = 'Search...',
-  className = '',
-  showIcon = true,
-  showClear = true,
-  disabled = false,
-  debounceDelay = 500,
-  onSearchStart,
-  onSearchEnd,
-}) => {
-  const searchRef = useRef(text)
+const InputSearch = ({ text, fn, placeholder, className, showIcon = true }) => {
   const [localSearch, setLocalSearch] = useState(text)
-
-  const debouncedSearch = useDebounce(localSearch, debounceDelay)
+  const debouncedSearch = useDebounce(localSearch)
 
   useEffect(() => {
     fn(debouncedSearch)
-  }, [debouncedSearch, fn])
-
-  const handleChange = useCallback(
-    (e) => {
-      const value = e.target.value
-      searchRef.current = value
-      setLocalSearch(value)
-      onSearchStart?.()
-    },
-    [onSearchStart]
-  )
-
-  const handleClear = useCallback(() => {
-    searchRef.current = ''
-    setLocalSearch('')
-    fn('')
-    onSearchEnd?.()
-  }, [fn, onSearchEnd])
-
-  useEffect(() => {
-    if (text !== searchRef.current) {
-      searchRef.current = text
-      setLocalSearch(text)
-    }
-  }, [text])
+  }, [debouncedSearch])
 
   return (
-    <div className="relative w-full group">
+    <div className="relative w-full">
       {showIcon && (
-        <SearchIcon
-          className={cn(
-            'absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 transition-colors',
-            'text-blue-500 animate-pulse'
-          )}
-          aria-hidden="true"
-        />
+        <SearchIcon className="absolute left-3 top-2 h-4 w-4 text-gray-500" />
       )}
-
       <Input
         className={cn(
-          'w-full h-9 px-3 py-2 transition-all focus:outline-none! focus:ring-0!',
-          'focus:ring-2 focus:ring-blue-500 focus:border-transparent',
-          showIcon && 'pl-9',
-          showClear && localSearch && 'pr-9',
-          disabled && 'opacity-50 cursor-not-allowed',
-          className
+          'w-full sm:max-w-sm h-8 p-0 m-0 px-3 py-1.5',
+          className,
+          showIcon && 'pl-8'
         )}
         type="text"
         placeholder={placeholder}
         value={localSearch}
-        onChange={handleChange}
-        disabled={disabled}
-        aria-label="Search input"
-        autoComplete="off"
+        onChange={(e) => setLocalSearch(e.target.value)}
       />
-
-      {showClear && localSearch && !disabled && (
-        <button
-          onClick={handleClear}
-          className={cn(
-            'absolute right-3 top-1/2 -translate-y-1/2 p-1',
-            'text-gray-400 hover:text-gray-600 dark:hover:text-gray-300',
-            'transition-colors rounded hover:bg-gray-100 dark:hover:bg-gray-800',
-            'focus:outline-none focus:ring-2 focus:ring-blue-500'
-          )}
-          aria-label="Clear search"
-          type="button"
-        >
-          <X size={16} />
-        </button>
-      )}
     </div>
   )
 }
