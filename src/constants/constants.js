@@ -1,3 +1,5 @@
+import { Brain, Users, Shield } from 'lucide-react'
+
 export const ERROR_MESSAGE = {
   // Network Errors
   NETWORK_ERROR: 'Unable to connect. Please check your internet connection.',
@@ -35,4 +37,57 @@ export const ERROR_MESSAGE = {
 
   // Default Error
   DEFAULT: 'An unexpected error occurred. Please try again.',
+}
+
+export const WORKFLOWS = [
+  {
+    id: 1,
+    title: 'Crane Selection',
+    description: 'Find the perfect crane for your construction project',
+    icon: Brain,
+    features: [
+      'Smart crane recommendations',
+      'Load capacity analysis',
+      'Site requirement matching',
+    ],
+    gradient: 'from-purple-500 to-purple-700',
+    titleColor: 'text-purple-600 dark:text-purple-400',
+    buttonGradient: 'from-purple-500 to-purple-700',
+    cardBg: 'bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200',
+  },
+  {
+    id: 2,
+    title: 'Technical Support',
+    description: 'Get detailed specifications and maintenance guidance',
+    icon: Users,
+    features: [
+      'Equipment specifications',
+      'Maintenance guidance',
+      'Troubleshooting help',
+    ],
+    gradient: 'from-orange-500 to-orange-700',
+    titleColor: 'text-orange-600 dark:orange-400',
+    buttonGradient: 'from-orange-500 to-orange-700',
+    cardBg: 'bg-gradient-to-br from-orange-50 to-yellow-50 border-orange-200',
+  },
+  {
+    id: 3,
+    title: 'Safety First',
+    description: 'Ensure safe crane operations with expert guidance',
+    icon: Shield,
+    features: ['Safety protocols', 'Compliance checks', 'Risk assessment'],
+    gradient: 'from-green-500 to-green-700',
+    titleColor: 'text-green-600 dark:green-400',
+    buttonGradient: 'from-green-500 to-green-700',
+    cardBg: 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-200',
+  },
+]
+
+export const REQUEST_METHOD = {
+  GET: 'GET',
+  PUT: 'PUT',
+  POST: 'POST',
+  DELETE: 'DELETE',
+  UPDATE: 'UPDATE',
+  PATCH: 'PATCH',
 }
