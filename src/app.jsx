@@ -1,10 +1,10 @@
 import { Toaster } from 'sonner'
 import { Provider } from 'react-redux'
-import { ThemeProvider } from 'next-themes'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import AppRoutes from './routes'
 import store, { persistor } from './store'
+import { ThemeProvider } from './providers'
 
 function App() {
   return (

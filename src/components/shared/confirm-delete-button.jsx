@@ -1,3 +1,6 @@
+import { useCallback, useState } from 'react'
+import { Loader2, Trash2, AlertTriangle } from 'lucide-react'
+
 import {
   AlertDialog,
   AlertDialogTrigger,
@@ -11,8 +14,6 @@ import {
 } from '@/components/ui/alert-dialog'
 
 import { cn } from '@/lib/utils'
-import { Loader2, Trash2, AlertTriangle } from 'lucide-react'
-import { useCallback, useState } from 'react'
 
 const ConfirmDeleteButton = ({
   onDelete,
@@ -28,7 +29,6 @@ const ConfirmDeleteButton = ({
 }) => {
   const [open, setOpen] = useState(false)
 
-  // 🎯 Memoized delete handler
   const handleDelete = useCallback(async () => {
     try {
       await onDelete()
@@ -40,14 +40,12 @@ const ConfirmDeleteButton = ({
     }
   }, [onDelete, onSuccess, onError])
 
-  // 🎨 Size variants
   const sizeClasses = {
     sm: 'p-1 text-xs',
     md: 'p-2 text-sm',
     lg: 'p-3 text-base',
   }
 
-  // 🎨 Variant styles
   const variantClasses = {
     icon: 'hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded transition-colors',
     button:
@@ -64,7 +62,6 @@ const ConfirmDeleteButton = ({
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
-      {/* 🎯 Trigger Button */}
       <AlertDialogTrigger asChild>
         <button
           className={triggerClasses}
@@ -77,9 +74,7 @@ const ConfirmDeleteButton = ({
         </button>
       </AlertDialogTrigger>
 
-      {/* 📋 Alert Dialog Content */}
       <AlertDialogContent className="max-w-md">
-        {/* ⚠️ Warning Icon */}
         <div className="flex items-start gap-4">
           <div className="shrink-0">
             <AlertTriangle className="h-6 w-6 text-red-600 dark:text-red-400" />
@@ -101,7 +96,6 @@ const ConfirmDeleteButton = ({
           </div>
         </div>
 
-        {/* 🎯 Footer Actions */}
         <AlertDialogFooter className="gap-2 pt-4">
           <AlertDialogCancel
             disabled={isLoading}
@@ -121,7 +115,7 @@ const ConfirmDeleteButton = ({
             {isLoading && (
               <Loader2 size={16} className="animate-spin" aria-hidden="true" />
             )}
-            <span>{isLoading ? 'Deleting...' : 'Delete'}</span>
+            <span>Delete</span>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
