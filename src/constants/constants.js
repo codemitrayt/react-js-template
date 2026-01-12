@@ -41,3 +41,12 @@ export const NODE_ENV = {
   DEVELOPMENT: 'development',
   PRODUCTION: 'production',
 }
+
+export const REQUEST_METHOD = {
+  GET: 'GET',
+  PUT: 'PUT',
+  POST: 'POST',
+  DELETE: 'DELETE',
+  UPDATE: 'UPDATE',
+  PATCH: 'PATCH',
+}

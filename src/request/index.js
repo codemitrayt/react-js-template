@@ -1,3 +1,3 @@
-import { request, axiosInstance } from './request'
+import { apiRequest, axiosInstance } from './request'
 
-export { request, axiosInstance }
+export { apiRequest, axiosInstance }

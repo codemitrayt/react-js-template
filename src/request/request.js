@@ -41,7 +41,7 @@ axiosInstance.interceptors.response.use(
   }
 )
 
-export const request = ({
+export const apiRequest = ({
   url,
   data = {},
   params = {},

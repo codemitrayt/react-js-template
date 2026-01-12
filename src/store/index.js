@@ -37,3 +37,5 @@ const store = configureStore({
 
 export const persistor = persistStore(store)
 export default store
+
+export { setAuth, logout, setUser } from './slices/auth-slice'

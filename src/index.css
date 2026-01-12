@@ -147,6 +147,15 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  ::selection {
+    background-color: var(--color-gray-300);
+  }
+  input:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px var(--background) inset !important;
+    -webkit-text-fill-color: var(--primary) !important;
+  }
 }
 
 .scrollbar-extra-thin::-webkit-scrollbar {
@@ -170,4 +179,13 @@
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@keyframes shrink {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
 }
