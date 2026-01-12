@@ -36,3 +36,8 @@ export const ERROR_MESSAGE = {
   // Default Error
   DEFAULT: 'An unexpected error occurred. Please try again.',
 }
+
+export const NODE_ENV = {
+  DEVELOPMENT: 'development',
+  PRODUCTION: 'production',
+}

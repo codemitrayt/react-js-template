@@ -1,9 +1,10 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import { persistReducer, persistStore } from 'redux-persist'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+
+import { appEnv, NODE_ENV } from '@/constants'
 
 import authSlice from './slices/auth-slice'
-import { appEnv } from '@/constants'
 
 const rootReducer = combineReducers({
   auth: authSlice,
@@ -31,7 +32,7 @@ const store = configureStore({
         ],
       },
     }),
-  devTools: appEnv.NODE_ENV === 'development',
+  devTools: appEnv.NODE_ENV === NODE_ENV.DEVELOPMENT,
 })
 
 export const persistor = persistStore(store)
