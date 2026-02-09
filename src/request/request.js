@@ -11,7 +11,7 @@ export const performLogout = () => {
 }
 
 export const axiosInstance = axios.create({
-  baseURL: appEnv.BACKEND_BASE_URL,
+  baseURL: appEnv.BACKEND_URL,
 })
 
 axiosInstance.interceptors.request.use((config) => {
