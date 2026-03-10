@@ -1,11 +1,12 @@
 import { pageTitle } from '@/constants'
 import { usePageTitle } from '@/hooks'
+import Hero from '../dashboard'
 
 const HomePage = () => {
   usePageTitle({ title: pageTitle.HOME_PAGE })
   return (
-    <div className="h-full flex flex-col p-4">
-      <h1>Hero</h1>
+    <div className="h-full flex flex-col ">
+     <Hero/>
     </div>
   )
 }
