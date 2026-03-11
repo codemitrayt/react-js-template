@@ -1,13 +1,10 @@
 import { pageTitle } from '@/constants'
 import { usePageTitle } from '@/hooks'
+import TuningResearchLanding from './components/tunning-page'
 
 const HomePage = () => {
   usePageTitle({ title: pageTitle.HOME_PAGE })
-  return (
-    <div className="h-full flex flex-col p-4">
-      <h1>Hero</h1>
-    </div>
-  )
+  return <TuningResearchLanding />
 }
 
 export default HomePage
