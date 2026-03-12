@@ -1,6 +1,6 @@
 import { pageTitle } from '@/constants'
 import { usePageTitle } from '@/hooks'
-import TuningResearchLanding from './components/tunning-page'
+import TuningResearchLanding from './components/landing'
 
 const HomePage = () => {
   usePageTitle({ title: pageTitle.HOME_PAGE })
